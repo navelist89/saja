@@ -7,7 +7,10 @@ import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.LinearLayout;
 import android.widget.TextView;
+
+import java.util.List;
 
 public class HanmoonReadActivity extends AppCompatActivity implements View.OnClickListener{
     private String tag = "Sajasohak";
@@ -28,9 +31,15 @@ public class HanmoonReadActivity extends AppCompatActivity implements View.OnCli
     }
 
     public void loadPage(){
+        Log.d(tag, "Reading Saja page : "+page);
         ArticleSajaHandler handler = new ArticleSajaHandler(this, page);
-        ((TextView)findViewById(R.id.letters1)).setText(handler.getChnletters().next());
-        ((TextView)findViewById(R.id.trans1)).setText(handler.getTranslations().next());
+
+
+        LinearLayout layer1 = (LinearLayout)findViewById(R.id.MainLettersView);
+
+        HanmoonPrinterLayout print = new HanmoonPrinterLayout(this, layer1, handler);
+
+
 
     }
 

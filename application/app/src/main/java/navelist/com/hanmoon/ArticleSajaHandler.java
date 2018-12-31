@@ -26,12 +26,7 @@ public class ArticleSajaHandler extends SQLiteOpenHelper {
     public ArticleSajaHandler(Context context, int page) {
         super(context, "saja.db", null, 1);
 
-        if(page<3){
-            page = 3;
-        }
-        if(page>81){
-            page = 81;
-        }
+
         this.page = page;
 
         try {
@@ -43,6 +38,7 @@ public class ArticleSajaHandler extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase db) {
+
 
     }
 
@@ -70,14 +66,17 @@ public class ArticleSajaHandler extends SQLiteOpenHelper {
             this.translations.add(cSentences.getString(2));
         }
 
+        /*
         for(int i=0; i<chnletters.size(); i++){
             Log.d(tag, chnletters.get(i));
             Log.d(tag, translations.get(i));
         }
+        */
 
 
     }
 
+    /*
     public void listAll(){
         SQLiteDatabase db = this.getReadableDatabase();
         String query = "SELECT * FROM article";
@@ -86,12 +85,13 @@ public class ArticleSajaHandler extends SQLiteOpenHelper {
             Log.d(tag, cursor.getString(1));
         }
     }
+    */
 
-    public Iterator<String> getChnletters(){
-        return this.chnletters.iterator();
+    public List<String> getChnletters(){
+        return this.chnletters;
     }
-    public Iterator<String> getTranslations(){
-        return this.translations.iterator();
+    public List<String> getTranslations(){
+        return this.translations;
     }
 
 

@@ -1,6 +1,7 @@
 package navelist.com.hanmoon;
 
 import android.content.Intent;
+import android.database.sqlite.SQLiteDatabase;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -18,6 +19,7 @@ public class MainActivity extends AppCompatActivity {
     private String tag = "MainActivity";
     private String DB_PATH;
     private String DB_NAME = "saja.db";
+    Dictionary dictionary;
 
 
 
@@ -42,10 +44,14 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        this.openOrCreateDatabase("meta", 0, null);
+        SQLiteDatabase testdb = this.openOrCreateDatabase("meta", 0, null);
         Log.d(tag, getDatabasePath("meta").toString());
+        testdb.close();
 
         initDB();
+
+        dictionary = Dictionary.getInstance(getApplicationContext());
+
 
 
 
