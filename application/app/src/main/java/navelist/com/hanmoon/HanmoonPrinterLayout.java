@@ -79,7 +79,7 @@ public class HanmoonPrinterLayout {
 
                 // == Translation TextView
                 TextView tvMean = new TextView(charLayout.getContext());
-                tvMean.setText(dict.findCharacter(ch));
+                tvMean.setText("");
                 charLayout.addView(tvMean);
 
 

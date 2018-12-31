@@ -5,10 +5,10 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
-import android.util.Log;
+
 
 import java.util.ArrayList;
-import java.util.Iterator;
+
 import java.util.List;
 
 public class ArticleSajaHandler extends SQLiteOpenHelper {
@@ -65,6 +65,7 @@ public class ArticleSajaHandler extends SQLiteOpenHelper {
             this.chnletters.add(cSentences.getString(0));
             this.translations.add(cSentences.getString(2));
         }
+        db.close();
 
         /*
         for(int i=0; i<chnletters.size(); i++){
